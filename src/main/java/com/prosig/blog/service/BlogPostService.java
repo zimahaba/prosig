@@ -26,4 +26,8 @@ public class BlogPostService {
     public BlogPost findById(UUID id) {
         return repository.findByIdAndFetchComments(id);
     }
+
+    public boolean existsById(UUID id) {
+        return repository.existsById(id);
+    }
 }
