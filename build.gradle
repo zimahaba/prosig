@@ -40,3 +40,9 @@ apply from: 'integration-test.gradle'
 tasks.withType(Test) {
 	useJUnitPlatform()
 }
+
+test {
+	testLogging {
+		events "PASSED", "SKIPPED", "FAILED"
+	}
+}
