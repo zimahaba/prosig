@@ -1,5 +1,6 @@
 package com.prosig.blog;
 
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.PostgreSQLContainer;
@@ -22,4 +23,8 @@ public class BlogIntegrationTest {
         registry.add("spring.datasource.username", DATABASE_CONTAINER::getUsername);
         registry.add("spring.datasource.password", DATABASE_CONTAINER::getPassword);
     }
+
+    @LocalServerPort
+    protected int port;
+
 }

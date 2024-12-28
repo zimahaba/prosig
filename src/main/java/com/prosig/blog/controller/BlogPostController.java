@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("posts")
+@RequestMapping("/api/posts")
 @RequiredArgsConstructor
 public class BlogPostController {
 
