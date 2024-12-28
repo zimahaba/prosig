@@ -1,5 +1,6 @@
 package com.prosig.blog.service;
 
+import com.prosig.blog.exception.NotFoundException;
 import com.prosig.blog.model.BlogPost;
 import com.prosig.blog.repository.BlogPostRepository;
 import com.prosig.blog.repository.projection.BlogPostProjection;
@@ -24,7 +25,7 @@ public class BlogPostService {
     }
 
     public BlogPost findById(UUID id) {
-        return repository.findByIdAndFetchComments(id);
+        return repository.findByIdAndFetchComments(id).orElseThrow(() -> new NotFoundException("Blog post with id '%s' not found.".formatted(id)));
     }
 
     public boolean existsById(UUID id) {

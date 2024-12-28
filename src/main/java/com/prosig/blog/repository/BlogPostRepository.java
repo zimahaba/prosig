@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -24,5 +25,5 @@ public interface BlogPostRepository extends JpaRepository<BlogPost, UUID> {
     List<BlogPostProjection> findPosts();
 
     @Query("SELECT bp FROM BlogPost bp LEFT JOIN FETCH bp.comments WHERE bp.id = :id ")
-    BlogPost findByIdAndFetchComments(@Param("id") UUID id);
+    Optional<BlogPost> findByIdAndFetchComments(@Param("id") UUID id);
 }
