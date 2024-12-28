@@ -1,0 +1,13 @@
+
+services:
+
+  blog-db:
+    container_name: blog-db
+    hostname: postgres
+    image: postgres:17.2
+    environment:
+      POSTGRES_USER: prosig
+      POSTGRES_PASSWORD: prosig
+      POSTGRES_DB: blog
+    ports:
+      - "5432:5432"
