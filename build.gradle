@@ -35,6 +35,8 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.named('test') {
+apply from: 'integration-test.gradle'
+
+tasks.withType(Test) {
 	useJUnitPlatform()
 }
